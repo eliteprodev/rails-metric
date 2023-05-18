@@ -1,14 +1,11 @@
-# rails_best_practices
+# rails_metric
 
-[![Gem Version](https://badge.fury.io/rb/rails_best_practices.svg)](http://badge.fury.io/rb/rails_best_practices)
-[![CI](https://github.com/flyerhzm/rails_best_practices/actions/workflows/main.yml/badge.svg)](https://github.com/flyerhzm/rails_best_practices/actions/workflows/main.yml)
-[![Coverage Status](https://coveralls.io/repos/railsbp/rails_best_practices/badge.svg?branch=master)](https://coveralls.io/r/railsbp/rails_best_practices)
-[![AwesomeCode Status for flyerhzm/rails_best_practices](https://awesomecode.io/projects/d02ecd70-e068-4ad4-b61a-7003ac24b49a/status)](https://awesomecode.io/repos/flyerhzm/rails_best_practices)
+[![Gem Version](https://badge.fury.io/rb/rails_metric.svg)](http://badge.fury.io/rb/rails_metric)
+[![CI](https://github.com/spectrepro/rails_metric/actions/workflows/main.yml/badge.svg)](https://github.com/spectrepro/rails_metric/actions/workflows/main.yml)
+[![Coverage Status](https://coveralls.io/repos/railsbp/rails_metric/badge.svg?branch=master)](https://coveralls.io/r/railsbp/rails_metric)
+[![AwesomeCode Status for spectrepro/rails_metric](https://awesomecode.io/projects/d02ecd70-e068-4ad4-b61a-7003ac24b49a/status)](https://awesomecode.io/repos/spectrepro/rails_metric)
 
-[![Coderwall Endorse](http://api.coderwall.com/flyerhzm/endorsecount.png)](http://coderwall.com/flyerhzm)
-[![Click here to lend your support to: rails best practices and make a donation at www.pledgie.com !](https://pledgie.com/campaigns/12057.png?skin_name=chrome)](https://pledgie.com/campaigns/12057)
-
-rails_best_practices is a code metric tool to check the quality of Rails code.
+rails_metric is a code metric tool to check the quality of Rails code.
 
 It supports the following ORM/ODMs:
 
@@ -23,43 +20,37 @@ And the following template engines:
 * slim
 * rabl
 
-rails_best_practices supports Ruby 1.9.3 or newer.
-
-## External Introduction
-
-[Ruby5 - Episode #253](http://ruby5.envylabs.com/episodes/257-episode-253-march-9th-2012/stories/2253-rails_best_practices)
-
-[Railscasts - #252 Metrics Metrics Metrics](http://railscasts.com/episodes/252-metrics-metrics-metrics)
+rails_metric supports Ruby 1.9.3 or newer.
 
 ## Usage
 
 At the root directory of a Rails app, run:
 
-    rails_best_practices .
+    rails_metric .
 
 Or for HTML output:
 
-    rails_best_practices -f html .
+    rails_metric -f html .
 
-By default rails_best_practices will parse code in the `vendor`, `spec`, `test` and `features` directories.
+By default rails_metric will parse code in the `vendor`, `spec`, `test` and `features` directories.
 
 ### Excluding directories
 
 To exclude a directory simply call it with `-e` or `--exclude`:
 
-    rails_best_practices -e "db/migrate" .
+    rails_metric -e "db/migrate" .
 
 To exclude multiple directories, separate them with comma:
 
-    rails_best_practices -e "db/migrate,vendor" .
+    rails_metric -e "db/migrate,vendor" .
 
 ### Other command-line options
 
 To see the full list of command-line options, run:
 
-    $ rails_best_practices -h
+    $ rails_metric -h
 
-    Usage: rails_best_practices [options]
+    Usage: rails_metric [options]
         -d, --debug                      Debug mode
         -f, --format FORMAT              output format
             --without-color              only output plain text without color
@@ -82,51 +73,29 @@ To see the full list of command-line options, run:
         -o, --only PATTERNS              analyze files only matching a pattern
                                          (comma-separated regexp list)
         -g, --generate                   Generate configuration yaml
-        -c, --config CONFIG_PATH         configuration file location (defaults to config/rails_best_practices.yml)
+        -c, --config CONFIG_PATH         configuration file location (defaults to config/rails_metric.yml)
         -v, --version                    Show this version
         -h, --help                       Show this message
 
-## Resources
-
-Homepage: <http://rails-bestpractices.com>
-
-GitHub: <http://github.com/railsbp/rails_best_practices>
-
-Team Blog <http://rails-bestpractices.com>
-
-Google Group: <https://groups.google.com/group/rails_best_practices>
-
-Wiki: <http://github.com/railsbp/rails_best_practices/wiki>
-
-Issue Tracker: <http://github.com/railsbp/rails_best_practices/issues>
-
 ## Install
 
-    gem install rails_best_practices
+    gem install rails_metric
 
 or add it to the Gemfile
 
-    gem "rails_best_practices"
-
-#### --with-sublime
-
-Install <https://github.com/asuth/subl-handler>
+    gem "rails_metric"
 
 ## Editor Integration
 
-#### TextMate 2
-
-If you use `TextMate 2`, you can install the [RailsBestPractices.tmbundle](https://github.com/jjuliano/RailsBestPractices.tmbundle) bundle.
-
 ## Issues
 
-If you install the rails_best_practices with bundler-installed GitHub-sourced gem, please use the following command instead.
+If you install the rails_metric with bundler-installed GitHub-sourced gem, please use the following command instead.
 
-    bundle exec rails_best_practices .
+    bundle exec rails_metric .
 
 If you encounter a NoMethodError exception, or a syntax error, you can use debug mode to discover which file is to blame:
 
-    rails_best_practices -d .
+    rails_metric -d .
 
 That will provide the error's stack trace and the source code of the file which is causing the error.
 
@@ -134,9 +103,9 @@ That will provide the error's stack trace and the source code of the file which 
 
 First run:
 
-    rails_best_practices -g
+    rails_metric -g
 
-to generate `rails_best_practices.yml` file.
+to generate `rails_metric.yml` file.
 
 Now you can customize this configuration file. The default configuration is as follows:
 
@@ -185,7 +154,7 @@ Now you can customize this configuration file. The default configuration is as f
 
 Now, at the root directory of a Rails app, run:
 
-    rails_best_practices . -c config/rails_best_practices.yml
+    rails_metric . -c config/rails_metric.yml
 
 You can remove or comment a review to disable it, and you can change the options.
 
@@ -266,25 +235,3 @@ Other
 4. Use parentheses in method definition (disabled by default)
 5. Long line (disabled by default)
 6. Not rescue exception
-
-## Write Your Own Checklist
-
-If you want to write your own checklist (some checklist only for your Rails projects), please read this first, [How to write your own check list?][1]
-
-## Contribute
-
-If you want to add your rails best practices into the gem, please post your best practices on <http://rails-bestpractices.com>
-
-## Contact Us
-
-We provide Rails consulting services, you can contact us by Twitter or email.
-
-Follow us on twitter: <http://twitter.com/railsbp>
-
-Send us email: <team@railsbp.com>
-
-
-Copyright © 2009 - 2022 Richard Huang (flyerhzm@gmail.com), released under the MIT license
-
-
-[1]: https://github.com/railsbp/rails_best_practices/wiki/How-to-write-your-own-check-list
